@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.appbin.fininfocomassignment.ui.login.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            app:popUpTo="@id/login"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_login_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.appbin.fininfocomassignment.ui.home.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_sortingBottomSheet"
+            app:destination="@id/sortingBottomSheet" />
+    </fragment>
+    <dialog
+        android:id="@+id/sortingBottomSheet"
+        android:name="com.appbin.fininfocomassignment.ui.home.SortingBottomSheet"
+        android:label="SortingBottomSheet" />
+</navigation>

@@ -34,17 +34,17 @@ class SortingBottomSheet : BottomSheetDialogFragment()  {
 
         binding.byName.setOnClickListener {
             onSortClickListener.sortData(Constants.sortByName)
-            findNavController().navigateUp()
+
         }
 
         binding.byAge.setOnClickListener {
             onSortClickListener.sortData(Constants.sortByAge)
-            findNavController().navigateUp()
+
         }
 
         binding.byCity.setOnClickListener {
             onSortClickListener.sortData(Constants.sortByCity)
-            findNavController().navigateUp()
+
         }
 
         return binding.root

@@ -47,10 +47,9 @@ class MainActivity : AppCompatActivity() {
 
         if (sharedPreferences.getBoolean(Constants.isLogin,false)){
             navGraph.setStartDestination(R.id.home2)
-        }else{
-            navGraph.setStartDestination(R.id.login)
+            navHostFragment.navController.graph = navGraph
         }
-        navHostFragment.navController.graph = navGraph
+
 
         lifecycleScope.launch {
             withContext(Dispatchers.IO){

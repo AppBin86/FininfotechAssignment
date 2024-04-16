@@ -13,16 +13,16 @@ import javax.inject.Inject
 
 class HomeViewModel: ViewModel() {
 
-    val userInfo : List<UserInfo>
+    var userInfo : List<UserInfo> = emptyList()
 
     var isSortClicked = MutableLiveData<Boolean>()
     val isSortClickedLiveData : LiveData<Boolean>
         get() = isSortClicked
 
-    init {
+
+    fun getAllData(){
         userInfo = Repository().getAllData()
     }
-
 
     fun sortClicked(){
         isSortClicked.value = true

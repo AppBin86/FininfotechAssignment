@@ -42,11 +42,7 @@ class Login : Fragment() {
                 if (it){
                     editor.putBoolean(Constants.isLogin,true)
                     editor.commit()
-                    Toast.makeText(
-                        requireContext(),
-                        "Login successfully...",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(requireContext(), "Login successfully...", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_login_to_home2)
                     loginSuccessfully()
                 }

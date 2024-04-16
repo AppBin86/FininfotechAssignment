@@ -37,19 +37,18 @@ class Home : Fragment() ,OnSortClickListener{
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
 
-
-       // SortingBottomSheet().initClickListener(this)
+        viewModel.getAllData()
 
         val list = viewModel.userInfo
         adapter = HomeAdapter()
         adapter.data = list as ArrayList<UserInfo>
 
         binding.recyclerView.adapter = adapter
+        modal = SortingBottomSheet()
+        modal.initClickListener(this)
 
         viewModel.isSortClickedLiveData.observe(viewLifecycleOwner){
             if(it){
-                modal = SortingBottomSheet()
-                modal.initClickListener(this@Home)
                 requireActivity().supportFragmentManager.let { modal.show(it, "SortingBottomSheet") }
                 viewModel.sortClickedDone()
             }
@@ -61,24 +60,26 @@ class Home : Fragment() ,OnSortClickListener{
         when(type){
 
             Constants.sortByName -> {
-                modal.dismiss()
                 val list = viewModel.userInfo
                 val list2 : List<UserInfo> = list.sortedBy { it.name }
                 adapter.data = ArrayList(list2)
+                modal.dismiss()
             }
 
             Constants.sortByAge -> {
-                modal.dismiss()
+
                 val list = viewModel.userInfo
                 val list2 : List<UserInfo> = list.sortedBy { it.age?.toInt() }
                 adapter.data = ArrayList(list2)
+                modal.dismiss()
             }
 
             Constants.sortByCity -> {
-                modal.dismiss()
+
                 val list = viewModel.userInfo
                 val list2 : List<UserInfo> = list.sortedBy { it.city }
                 adapter.data = ArrayList(list2)
+                modal.dismiss()
             }
         }
     }

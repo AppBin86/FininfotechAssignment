@@ -12,7 +12,7 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            app:popUpTo="@layout/fragment_login"
+            app:popUpTo="@id/login"
             app:popUpToInclusive="true"
             android:id="@+id/action_login_to_home2"
             app:destination="@id/home2" />
